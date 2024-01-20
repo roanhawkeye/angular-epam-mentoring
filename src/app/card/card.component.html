@@ -1,9 +1,9 @@
-<div class="card">
+<div class="card card-dimensions" (click)="navigateToDetails()">
     <div class="card-header">
-        Card
+        <img src="{{card.sprite}}" />
     </div>
     <div class="card-body">
-        <p><strong>Name: </strong> {{card.name}}</p>
+        <p><strong>Name: </strong> {{card.name | uppercase}}</p>
         <p><strong>Id: </strong> {{card.id}} </p>
         <p *ngIf="card.forms_switchable"><strong>Forms switchable:</strong> {{card.forms_switchable}} </p>
     </div>
