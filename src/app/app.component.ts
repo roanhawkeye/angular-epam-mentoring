@@ -2,55 +2,23 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from "./card/card.component";
-import { CardDTO } from './card/CardDTO';
+import { Card } from './models/Card';
+import { CardService } from './services/card.service';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
+    providers: [CardService],
     imports: [CommonModule, RouterOutlet, CardComponent]
 })
 export class AppComponent {
   title = 'epam-mentoring-angular';
-cards: any;
+  cards: Card[];
 
-constructor() {
-  this.cards = [
-      {
-        "name": "bulbasaur",
-        "id": 1,
-        "forms_switchable": false
-      },
-      {
-        "name": "ivysaur",
-        "id": 2,
-        "forms_switchable": false
-      },
-      {
-        "name": "venusaur",
-        "id": 3,
-        "forms_switchable": true
-      },
-      {
-        "name": "charmander",
-        "id": 4,
-        "forms_switchable": false
-      },
-      {
-        "name": "charmeleon",
-        "id": 5,
-        "forms_switchable": false
-      },
-      {
-        "name": "charizard",
-        "id": 6,
-        "forms_switchable": true
-      }
-  ];
-
-}
-
-
+  constructor(private cardService: CardService) {
+    this.cards = cardService.getAllCards();
+  }
 
 }

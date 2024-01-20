@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardDTO } from './CardDTO';
+import { Card } from '../models/Card';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input() card!: CardDTO;
+  @Input() card!: Card;
 
 }
