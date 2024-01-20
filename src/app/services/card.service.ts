@@ -14,4 +14,8 @@ export class CardService {
     return this.cards;
   }
 
+  getCardById(id: number): Card{
+    return this.cards.filter(card => card.id === id)[0];
+  }
+
 }

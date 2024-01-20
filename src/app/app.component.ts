@@ -11,7 +11,7 @@ import { CardService } from './services/card.service';
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
     providers: [CardService],
-    imports: [CommonModule, RouterOutlet, CardComponent]
+    imports: [CommonModule, RouterOutlet]
 })
 export class AppComponent {
   title = 'epam-mentoring-angular';
