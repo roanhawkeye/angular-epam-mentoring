@@ -4,6 +4,5 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 
 export const routes: Routes = [
   {path: 'cards', component: CardListComponent },
-  {path: 'cards/:id', component: CardDetailsComponent},
-  {path: '', redirectTo: '/cards', pathMatch: 'full' }
+  {path: 'cards/:id', component: CardDetailsComponent}
 ];

@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Card } from '../models/Card';
 import { CardService } from '../services/card.service';
 import { CommonModule } from '@angular/common';
@@ -15,12 +14,14 @@ import { HectogramPipe } from '../pipes/hectograms.pipe';
   styleUrl: './card-details.component.css'
 })
 export class CardDetailsComponent {
-  route: ActivatedRoute = inject(ActivatedRoute);
-  cardId: number;
+  @Input()
   card!: Card;
 
-  constructor(private cardService: CardService){
-    this.cardId = Number(this.route.snapshot.params['id']);
-    this.card = cardService.getCardById(this.cardId);
+  @Output()
+  onBackEmmiter: EventEmitter<boolean> = new EventEmitter();
+
+  backToList(){
+    this.onBackEmmiter.emit(false);
   }
+
 }

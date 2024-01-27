@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Card } from '../models/Card';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -12,10 +12,10 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class CardComponent {
   @Input() card!: Card;
+  @Output() cardEmmiter: EventEmitter<Card> = new EventEmitter();
 
-  constructor(private router: Router){}
-
-  navigateToDetails() {
-    this.router.navigateByUrl(`/cards/${this.card.id}`);
+  emitCard(){
+    this.cardEmmiter.emit(this.card);
   }
+
 }

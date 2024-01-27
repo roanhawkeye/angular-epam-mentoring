@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { Card } from '../models/Card';
 import { CardService } from '../services/card.service';
@@ -15,7 +15,14 @@ import { CommonModule } from '@angular/common';
 export class CardListComponent {
   cards: Card[];
 
+  @Output()
+  onCardEmmiter: EventEmitter<Card> = new EventEmitter();
+
   constructor(private cardService: CardService) {
     this.cards = cardService.getAllCards();
+  }
+
+  emitCard(card: Card){
+    this.onCardEmmiter.emit(card);
   }
 }

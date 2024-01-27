@@ -1,4 +1,4 @@
 <div class="card-container">
-  <app-card *ngFor="let card of cards;" [card]="card" />
+  <app-card (cardEmmiter)="emitCard($event)" *ngFor="let card of cards;" [card]="card" />
 </div>
 
